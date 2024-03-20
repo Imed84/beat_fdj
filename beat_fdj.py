@@ -17,15 +17,11 @@ for i in u.files:
     df_temp = pd.concat(data.values(), ignore_index=True)
     df = pd.concat([df, df_temp], ignore_index=True)
 
-print(len(df))
-print(df.columns)
-
 df = df.apply(u.fill_odds, axis=1)
-print(df.columns)
-print(len(df))
 
 df =df[['Div', 'Date', 'HomeTeam', 'AwayTeam', 'FTR', 'BH', 'BD', 'BA']]
-print(df.columns)
-print(len(df))
 
 df = df.dropna()
+
+logging.debug(f'database : {len(df)} rows')
+logging.debug(df.sample(5))

@@ -1,3 +1,5 @@
+import pandas as pd
+
 def fill_odds(row):
     if 'B365H' in row.index and pd.notna(row['B365H']):
         row['BH'] = row['B365H']
